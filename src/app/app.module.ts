@@ -7,6 +7,7 @@ import { MainModule } from './main/main.module';
 
 import { AppComponent } from './app.component';
 
+
 // Redirect to movies
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'movies'}
@@ -14,7 +15,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
