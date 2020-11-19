@@ -13,7 +13,7 @@ export class MovieListComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
-    movieClicked(movie) {
+    movieClicked = movie => {
       this.selectMovie.emit(movie);
-    }
+    };
 }

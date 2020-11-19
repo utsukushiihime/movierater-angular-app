@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-movie-details',
@@ -8,6 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class MovieDetailsComponent implements OnInit {
 
   @Input() movie;
+  faStar = faStar;
 
   constructor() { }
 

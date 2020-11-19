@@ -22,6 +22,7 @@ export class MainComponent implements OnInit {
       error => console.log(error)
     );
   }
+  // tslint:disable-next-line:typedef
   selectMovie(movie) {
     this.selectedMovie = movie;
   }
