@@ -1,4 +1,4 @@
-<div *ngFor="let movie of movies">
+<div *ngFor="let movie of movies" (click)="movieClicked(movie)">
   <h3>
   {{ movie.title }}
   </h3>
