@@ -15,7 +15,12 @@ export class MovieListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.movies = this.apiService.getMovies();
+    this.apiService.getMovies().subscribe(
+      data => {
+        // @ts-ignore
+        this.movies = data;
+      },
+      error => console.log(error)
+    );
   }
-
 }
