@@ -2,7 +2,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {Movie} from './models/Movie';
-import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
@@ -37,12 +36,11 @@ export class ApiService {
     return this.httpClient.post(`${this.baseUrl}${movieId}/rate_movie/`, body, {headers: this.headers});
   }
 
-  getAuthHeaders() {
-    const token = this.cookieService.get('mr-token');
-    return new HttpHeaders({
-      'Content-Type': 'application/json',
-      Authorization: `Token ${token}`
-    });
-  }
+  // getAuthHeaders() {
+  //   const token = this.cookieService.get('mr-token');
+  //   return new HttpHeaders({
+  //     'Content-Type': 'application/json',
+  //     Authorization: `Token ${token}`
+  //   });
+  // }
 }
-``
