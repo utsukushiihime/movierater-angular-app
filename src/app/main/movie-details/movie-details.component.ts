@@ -24,8 +24,21 @@ export class MovieDetailsComponent implements OnInit {
   rateHover(rate: number) {
     this.rateHovered = rate;
   }
+
   rateClicked(rate: number) {
     this.apiService.rateMovie(rate, this.movie.id).subscribe(
+      result => {
+        this.getDetails();
+      },
+      error => console.log(error)
+   );
+  }
+
+  getDetails() {
+    this.apiService.getMovie(this.movie.id).subscribe(
+      result => {
+        console.log(result);
+      },
       error => console.log(error)
     );
   }
