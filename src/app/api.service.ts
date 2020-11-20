@@ -28,7 +28,7 @@ export class ApiService {
   }
 
   deleteMovie(id: number) {
-    return this.httpClient.delete(`${this.baseUrl}${id}/`, {headers: this.getAuthHeaders()});
+    return this.httpClient.delete(`${this.baseUrl}${id}/`, {headers: this.headers});
   }
 
   rateMovie(rate: number, movieId: number) {
@@ -36,11 +36,4 @@ export class ApiService {
     return this.httpClient.post(`${this.baseUrl}${movieId}/rate_movie/`, body, {headers: this.headers});
   }
 
-  // getAuthHeaders() {
-  //   const token = this.cookieService.get('mr-token');
-  //   return new HttpHeaders({
-  //     'Content-Type': 'application/json',
-  //     Authorization: `Token ${token}`
-  //   });
-  // }
 }
