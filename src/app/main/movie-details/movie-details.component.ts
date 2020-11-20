@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ApiService } from '../../api.service';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
@@ -10,6 +10,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 export class MovieDetailsComponent implements OnInit {
 
   @Input() movie;
+  @Output() updateMovie = new EventEmitter()
   rateHovered = 0;
   faStar = faStar;
 
@@ -21,23 +22,21 @@ export class MovieDetailsComponent implements OnInit {
   ngOnInit(): void {
   }
   // tslint:disable-next-line:typedef
-  rateHover(rate: number) {
+  rateHover(rate) {
     this.rateHovered = rate;
   }
 
-  rateClicked(rate: number) {
+  rateClicked(rate) {
     this.apiService.rateMovie(rate, this.movie.id).subscribe(
-      result => {
-        this.getDetails();
-      },
+      result => this.getDetails(),
       error => console.log(error)
    );
   }
 
   getDetails() {
     this.apiService.getMovie(this.movie.id).subscribe(
-      result => {
-        console.log(result);
+      movie => {
+        this.updateMovie.emit(movie);
       },
       error => console.log(error)
     );
