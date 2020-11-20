@@ -11,6 +11,8 @@ export class MainComponent implements OnInit {
 
   movies: Movie[]  = [];
   selectedMovie = null;
+  editedMovie = null;
+
 
   constructor(private apiService: ApiService) { }
 
@@ -25,5 +27,10 @@ export class MainComponent implements OnInit {
   // tslint:disable-next-line:typedef
   selectMovie(movie: Movie) {
     this.selectedMovie = movie;
+  }
+  // tslint:disable-next-line:typedef
+  editMovie(movie: Movie) {
+    this.editedMovie = movie;
+    this.selectedMovie = null;
   }
 }
