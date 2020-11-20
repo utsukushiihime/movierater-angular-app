@@ -1,12 +1,11 @@
-<p>
-  Movie: {{ movie.title }}
-</p>
 <form [formGroup]="movieForm" (ngSubmit)="saveForm()">
   <label>Title</label><br>
-  <input type="text" formControlName="title">
-  <br/>
+  <input type="text" formControlName="title"/><br>
+
   <label>Description</label><br>
-  <textarea formControlName="description" type="text"> </textarea>
-  <br/>
-  <button type ="submit">Save</button>
+  <textarea type="text" formControlName="description"></textarea><br>
+  <button type="submit" [disabled]="formDisabled()">
+    <span *ngIf="id">Update</span>
+    <span *ngIf="!id">Create</span>
+  </button>
 </form>

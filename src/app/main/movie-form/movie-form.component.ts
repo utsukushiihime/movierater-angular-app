@@ -9,20 +9,30 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class MovieFormComponent implements OnInit {
 
-  @Input() movie: Movie;
+movieForm;
+id = null;
 
-movieForm = new FormGroup({
-  title: new FormControl(''),
-  description: new FormControl('')
-});
+@Input() set movie(val: Movie) {
+  this.id = val.id;
+  this.movieForm = new FormGroup({
+    title: new FormControl(val.title),
+    description: new FormControl(val.description)
+  });
+}
 
-  constructor() { }
+constructor() { }
 
-  ngOnInit(): void {
-  }
+ngOnInit(): void {
+}
 
-  saveForm() {
-    console.log(this.movieForm.value);
-  }
+// tslint:disable-next-line:typedef
+formDisabled() {
+  return !(this.movieForm.value.title.length && this.movieForm.value.description.length);
+}
+
+// tslint:disable-next-line:typedef
+saveForm() {
+  console.log(this.movieForm.value);
+}
 
 }
