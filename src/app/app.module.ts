@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import {ReactiveFormsModule} from '@angular/forms';
 
 import { AuthModule } from './auth/auth.module';
 import { MainModule } from './main/main.module';
@@ -21,7 +20,6 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule,
     AuthModule,
     MainModule,
     RouterModule.forRoot(routes),

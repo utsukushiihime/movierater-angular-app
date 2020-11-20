@@ -2,10 +2,10 @@
   Movie: {{ movie.title }}
 </p>
 <form [formGroup]="movieForm" (ngSubmit)="saveForm()">
-  <label for="title">Title</label><br>
+  <label>Title</label><br>
   <input type="text" formControlName="title">
   <br/>
-  <label for="description">Description</label><br>
+  <label>Description</label><br>
   <textarea formControlName="description" type="text"> </textarea>
   <br/>
   <button type ="submit">Save</button>
