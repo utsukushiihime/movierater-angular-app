@@ -13,6 +13,10 @@ export class MovieListComponent implements OnInit {
   @Input() movies: Movie[] = [];
   @Output() selectMovie = new EventEmitter<Movie>();
   @Output() editedMovie = new EventEmitter<Movie>();
+  @Output() createNewMovie = new EventEmitter();
+  @Output() deletedMovie = new EventEmitter<Movie>();
+
+
   faEdit = faEdit;
   faTrash = faTrash;
 
@@ -21,9 +25,19 @@ export class MovieListComponent implements OnInit {
   ngOnInit(): void {}
     movieClicked = (movie: Movie) => {
       this.selectMovie.emit(movie);
-    };
+    }
 
     editMovie = (movie: Movie) => {
       this.editedMovie.emit(movie);
-    };
+    }
+
+  // tslint:disable-next-line:typedef
+    newMovie() {
+      this.createNewMovie.emit();
+    }
+
+  // tslint:disable-next-line:typedef
+    deleteMovie(movie: Movie) {
+    this.deletedMovie.emit(movie);
+    }
 }

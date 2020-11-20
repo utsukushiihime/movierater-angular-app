@@ -3,6 +3,6 @@
   {{ movie.title }}
   </h3>
     <fa-icon [icon]="faEdit" (click)="editMovie(movie)"></fa-icon>
-    <fa-icon [icon]="faTrash" class="trash"></fa-icon>
+    <fa-icon [icon]="faTrash" (click)="deleteMovie(movie)" class="trash"></fa-icon>
 </div>
-<button>New Movie</button>
+<button (click)="newMovie()">New Movie</button>
