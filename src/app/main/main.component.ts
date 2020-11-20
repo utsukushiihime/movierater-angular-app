@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ApiService} from '../api.service';
+import { Movie } from '../models/Movie';
 
 @Component({
   selector: 'app-main',
@@ -8,22 +9,21 @@ import {ApiService} from '../api.service';
 })
 export class MainComponent implements OnInit {
 
-  movies: any  = [];
+  movies: Movie[]  = [];
   selectedMovie = null;
 
   constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
     this.apiService.getMovies().subscribe(
-      data => {
-        // @ts-ignore
+      (data: Movie[] ) => {
         this.movies = data;
       },
       error => console.log(error)
     );
   }
   // tslint:disable-next-line:typedef
-  selectMovie(movie) {
+  selectMovie(movie: Movie) {
     this.selectedMovie = movie;
   }
 }
