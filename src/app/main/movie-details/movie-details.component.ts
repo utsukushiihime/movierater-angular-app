@@ -11,7 +11,7 @@ import { Movie } from '../../models/Movie';
 export class MovieDetailsComponent implements OnInit {
 
   @Input() movie: Movie;
-  @Output() updateMovie = new EventEmitter<Movie>()
+  @Output() updateMovie = new EventEmitter<Movie>();
   rateHovered = 0;
   faStar = faStar;
 
@@ -35,6 +35,7 @@ export class MovieDetailsComponent implements OnInit {
    );
   }
 
+  // tslint:disable-next-line:typedef
   getDetails() {
     this.apiService.getMovie(this.movie.id).subscribe(
       (movie: Movie) => {

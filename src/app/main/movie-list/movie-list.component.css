@@ -5,6 +5,7 @@
 .movie-item fa-icon {
   font-size: 1.5em;
   margin: 15px 5px;
+  cursor: pointer;
 }
 
 .trash {

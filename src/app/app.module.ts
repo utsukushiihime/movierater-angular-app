@@ -7,6 +7,7 @@ import { AuthModule } from './auth/auth.module';
 import { MainModule } from './main/main.module';
 
 import { AppComponent } from './app.component';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 
 // Redirect to movies
@@ -23,7 +24,8 @@ const routes: Routes = [
     AuthModule,
     MainModule,
     RouterModule.forRoot(routes),
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   ],
   exports: [
     RouterModule

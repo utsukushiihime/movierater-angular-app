@@ -1,11 +1,17 @@
 .app {
-  background-color: #2d2f2f;
-  color: #eee;
-  height: calc(100vh - 100px);
+  background-color: #282c34;
+  color: white;
+  min-height: calc(100vh - 100px);
   padding: 50px;
   margin: 0;
 }
-
 h1 {
   text-align: center;
+  color: orange;
+  font-size: 3em;
+}
+.rotate-30 {
+  color: white;
+  display: inline-block;
+  transform: rotate(30deg);
 }
