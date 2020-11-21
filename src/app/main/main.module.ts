@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {Routes, RouterModule} from '@angular/router';
-import {ReactiveFormsModule} from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ApiService } from '../api.service';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 import { MainComponent } from './main.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
@@ -25,14 +26,10 @@ const routes: Routes = [
     CommonModule,
     ReactiveFormsModule,
     FontAwesomeModule,
-    RouterModule.forChild(routes),
-
+    RouterModule.forChild(routes)
   ],
   exports: [
     RouterModule
-  ],
-  providers: [
-    ApiService
   ]
 })
 export class MainModule { }

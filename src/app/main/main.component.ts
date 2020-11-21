@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {ApiService} from '../api.service';
+import { ApiService } from '../api.service';
 import { Movie } from '../models/Movie';
-import { Router} from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -10,40 +11,45 @@ import { Router} from '@angular/router';
 })
 export class MainComponent implements OnInit {
 
-  movies: Movie[]  = [];
+  movies: Movie[] = [];
   selectedMovie = null;
   editedMovie = null;
 
+  constructor(
+    private apiService: ApiService,
+    private cookieService: CookieService,
+    private router: Router
+  ) { }
 
-
-  constructor(private apiService: ApiService) { }
-
-  ngOnInit(): void {
-    this.apiService.getMovies().subscribe(
-      (data: Movie[] ) => {
-        this.movies = data;
-      },
-      error => console.log(error)
-    );
+  ngOnInit() {
+    const mrToken = this.cookieService.get('mr-token');
+    if (!mrToken) {
+      this.router.navigate(['/auth']);
+    } else {
+      this.apiService.getMovies().subscribe(
+        (data: Movie[]) => {
+          this.movies = data;
+        },
+        error => console.log(error)
+      );
+    }
   }
-  // tslint:disable-next-line:typedef
+  logout() {
+    this.cookieService.delete('mr-token');
+    this.router.navigate(['/auth']);
+  }
   selectMovie(movie: Movie) {
     this.selectedMovie = movie;
     this.editedMovie = null;
   }
-  // tslint:disable-next-line:typedef
   editMovie(movie: Movie) {
     this.editedMovie = movie;
     this.selectedMovie = null;
   }
-
-  // tslint:disable-next-line:typedef
   createNewMovie() {
     this.editedMovie = {title: '', description: ''};
     this.selectedMovie = null;
   }
-
-  // tslint:disable-next-line:typedef
   deletedMovie(movie: Movie) {
     this.apiService.deleteMovie(movie.id).subscribe(
       data => {
@@ -51,5 +57,16 @@ export class MainComponent implements OnInit {
       },
       error => console.log(error)
     );
+  }
+  movieCreated(movie: Movie) {
+    this.movies.push(movie);
+    this.editedMovie = null;
+  }
+  movieUpdated(movie: Movie) {
+    const idx = this.movies.findIndex( mov => mov.id === movie.id);
+    if (idx >= 0) {
+      this.movies[idx] = movie;
+    }
+    this.editedMovie = null;
   }
 }

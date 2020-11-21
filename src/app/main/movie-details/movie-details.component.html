@@ -9,10 +9,12 @@
   <p>{{ movie.description }}</p>
 
   <div id="rate-container">
-    <h3>Rate it!</h3>
+    <h2>Rate it !!!</h2>
     <fa-icon [icon]="faStar" *ngFor="let rate of [1,2,3,4,5]" (mouseenter)="rateHover(rate)"
              (mouseleave)="rateHovered = 0" (click)="rateClicked(rate)"
              [ngClass]="{'purple': rateHovered >= rate}"
     ></fa-icon>
   </div>
+
+
 </div>
