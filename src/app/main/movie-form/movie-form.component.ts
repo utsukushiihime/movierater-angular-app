@@ -28,17 +28,16 @@ export class MovieFormComponent implements OnInit {
     private apiService: ApiService
   ) { }
 
+  // tslint:disable-next-line:typedef
   ngOnInit() {
   }
 
+  // tslint:disable-next-line:typedef
   formDisabled() {
-    if (this.movieForm.value.title.length &&
-      this.movieForm.value.description.length) {
-      return false;
-    } else {
-      return true;
-    }
+    return !(this.movieForm.value.title.length &&
+      this.movieForm.value.description.length);
   }
+  // tslint:disable-next-line:typedef
   saveForm() {
     if (this.id) {
       this.apiService.updateMovie(this.id,

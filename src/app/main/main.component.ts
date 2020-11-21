@@ -46,8 +46,10 @@ export class MainComponent implements OnInit {
   // tslint:disable-next-line:typedef
   deletedMovie(movie: Movie) {
     this.apiService.deleteMovie(movie.id).subscribe(
-    // TODO Remove using API
-    //   error => console.log(error)
+      data => {
+        this.movies = this.movies.filter(mov => mov.id !== movie.id);
+      },
+      error => console.log(error)
     );
   }
 }
