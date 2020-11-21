@@ -1,5 +1,8 @@
 # Movierater Angular
 
+#### [API for Movie Rater App](https://github.com/utsukushiihime/movierater-api)
+
+
 ### App Requirements
 
     - stores movies in DB (title and description)
