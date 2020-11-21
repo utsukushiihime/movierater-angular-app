@@ -24,6 +24,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "ngx-cookie-service": "^10.1.1",
     "npm-install-missing": "^0.1.4",
+    "prettier": "^2.2.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
