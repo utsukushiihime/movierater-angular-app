@@ -1,4 +1,4 @@
-<button (click)="logout()">Logout</button>
+<button class="btn btn-warning" (click)="logout()">Logout</button>
 <div class="layout">
   <app-movie-list [movies]="movies" (selectMovie)="selectMovie($event)" (deletedMovie)="deletedMovie($event)"  (editedMovie)="editMovie($event)" (createNewMovie)="createNewMovie()"></app-movie-list>
   <div>
