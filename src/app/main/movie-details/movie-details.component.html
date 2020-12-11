@@ -1,23 +1,22 @@
-<div class="col">
-  <div *ngIf="movie">
-    <h1>{{ movie.title }}</h1>
-    <fa-icon [icon]="faStar" [ngClass]="{'orange': movie.avg_rating > 0}"></fa-icon>
-    <fa-icon [icon]="faStar" [ngClass]="{'orange': movie.avg_rating > 1}"></fa-icon>
-    <fa-icon [icon]="faStar" [ngClass]="{'orange': movie.avg_rating > 2}"></fa-icon>
-    <fa-icon [icon]="faStar" [ngClass]="{'orange': movie.avg_rating > 3}"></fa-icon>
-    <fa-icon [icon]="faStar" [ngClass]="{'orange': movie.avg_rating > 4}"></fa-icon>
+<div *ngIf="movie">
+  <h1>{{ movie.title }}</h1>
+  <fa-icon [icon]="faStar" [ngClass]="{'orange': movie.avg_rating > 0}"></fa-icon>
+  <fa-icon [icon]="faStar" [ngClass]="{'orange': movie.avg_rating > 1}"></fa-icon>
+  <fa-icon [icon]="faStar" [ngClass]="{'orange': movie.avg_rating > 2}"></fa-icon>
+  <fa-icon [icon]="faStar" [ngClass]="{'orange': movie.avg_rating > 3}"></fa-icon>
+  <fa-icon [icon]="faStar" [ngClass]="{'orange': movie.avg_rating > 4}"></fa-icon>
 
-    <small>
-    ({{movie.no_of_ratings}})
-    </small>
-    <p>{{ movie.description }}</p>
+  <small>
+  ({{movie.no_of_ratings}})
+  </small>
+  <p>{{ movie.description }}</p>
 
-    <div id="rate-container">
-      <h2>Rate it !!!</h2>
-      <fa-icon [icon]="faStar" *ngFor="let rate of [1,2,3,4,5]" (mouseenter)="rateHover(rate)"
-               (mouseleave)="rateHovered = 0" (click)="rateClicked(rate)"
-               [ngClass]="{'purple': rateHovered >= rate}"
-      ></fa-icon>
+  <div id="rate-container">
+    <h2>Rate it !!!</h2>
+    <fa-icon [icon]="faStar" *ngFor="let rate of [1,2,3,4,5]" (mouseenter)="rateHover(rate)"
+             (mouseleave)="rateHovered = 0" (click)="rateClicked(rate)"
+             [ngClass]="{'purple': rateHovered >= rate}"
+    ></fa-icon>
   </div>
-    </div>
 </div>
+
