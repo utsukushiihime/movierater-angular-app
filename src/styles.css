@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 body {
+  background-color: #282c34;
   margin: 0;
   padding: 0;
 }
@@ -18,7 +19,8 @@ button:disabled {
   background-color: #444444;
   cursor: not-allowed;
 }
-input, textarea {
+input,
+textarea {
   width: 100%;
   font-size: 0.8em;
   margin: 8px 0;
