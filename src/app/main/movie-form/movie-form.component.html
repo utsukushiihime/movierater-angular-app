@@ -1,10 +1,12 @@
-<div class="form-floating">
-  <form [formGroup]="movieForm" (ngSubmit)="saveForm()">
-  <label class="form-label">Title</label>
-  <input class="form-control" type="text" formControlName="title"/>
-
-  <label class="form-label">Description</label>
-  <textarea class="form-control" type="text" formControlName="description"  style="height: 150px"></textarea>
+<form [formGroup]="movieForm" (ngSubmit)="saveForm()">
+  <div class="form-floating">
+    <input id="titleInput" class="form-control" type="text" formControlName="title" placeholder="Enter Title" />
+    <label for="titleInput">Title</label>
+  </div>
+  <div class="form-floating">
+    <textarea id="descriptionInput" class="form-control" type="text" formControlName="description"  style="height: 200px" placeholder="Description"></textarea>
+    <label for="descriptionInput" class="form-label">Description</label>
+  </div>
   <button class="btn btn-warning" type="submit" [disabled]="formDisabled()">
     <a *ngIf="id">Update
       <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -18,4 +20,3 @@
     </a>
   </button>
 </form>
-</div>
